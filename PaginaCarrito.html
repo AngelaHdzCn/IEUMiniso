@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Miniso - Hogar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { darkMode: 'class' }</script>
+    <style>
+        /* Animación para el botón al hacer clic */
+        .btn-click-animation {
+            animation: scalePop 0.3s ease-in-out !important;
+        }
+
+        @keyframes scalePop {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.15);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        * {
+            transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+        }
+    </style>
+</head>
+<body class="bg-white dark:bg-gray-900 overflow-x-hidden">
+
+    <!-- HEADER -->
+    <header class="w-full bg-[#eeeeee] dark:bg-gray-800 shadow">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 p-4">
+            <div class="flex items-center gap-4">
+                <div class="w-24 h-24 bg-[#ffafaf] dark:bg-[#c04040] rounded-xl flex items-center justify-center">
+                    <span class="text-[#e46868] dark:text-white font-black text-2xl">M</span>
+                </div>
+                <a href="PaginaInicial.html" class="text-4xl font-red text-[#e46868] dark:text-[#ff8a8a]">
+                    <strong style="font-weight: 900;">MINISO</strong>
+                </a>
+            </div>
+            <div class="flex w-full md:w-[550px]">
+                <input type="text" placeholder="Busca Blind Boxes Exclusivas"
+                       class="w-full border-4 border-[#e46868] dark:border-[#ff8a8a] rounded-l-xl p-4 outline-none bg-white dark:bg-gray-700 text-gray-800 dark:text-white" />
+                <button class="bg-[#e46868] dark:bg-[#c04040] px-6 text-white rounded-r-xl text-xl hover:bg-[#d65757] transition">🔍</button>
+            </div>
+            <div class="flex items-center gap-4">
+
+                <a href="PaginaLogin.html" class="relative bg-[#e46868] dark:bg-[#c04040] text-white p-3 rounded-xl text-2xl hover:bg-[#d65757] transition inline-flex items-center justify-center">
+                    👤
+                </a>
+
+                <a href="PaginaCarrito.html" class="relative bg-[#e46868] dark:bg-[#c04040] text-white p-3 rounded-xl text-2xl hover:bg-[#d65757] transition inline-flex items-center justify-center">
+                    🛒
+                    <span class="cart-counter absolute -top-2 -right-2 bg-white dark:bg-gray-800 text-[#e46868] dark:text-[#ff8a8a] text-xs font-bold w-5 h-5 flex items-center justify-center rounded-full">0</span>
+                </a>
+            </div>
+        </div>
+
+        <nav class="bg-[#f8998d] dark:bg-gray-700 text-white relative">
+            <div class="max-w-7xl mx-auto flex items-center p-5 font-semibold text-lg">
+                <button id="menuBtn" class="mr-4 flex flex-col gap-1">
+                    <span class="w-6 h-0.5 bg-white"></span>
+                    <span class="w-6 h-0.5 bg-white"></span>
+                    <span class="w-6 h-0.5 bg-white"></span>
+                </button>
+                <div class="flex flex-wrap gap-6">
+                    <a href="PaginaTodaslascategorias.html" class="hover:underline">Todas las Categorías</a>
+                    <a href="PaginaHogar.html" class="hover:underline">Hogar</a>
+                    <a href="PaginaSaludyBelleza.html" class="hover:underline">Salud y Belleza</a>
+                    <a href="PaginaModa.html" class="hover:underline">Moda</a>
+                    <a href="PaginaJuguetes.html" class="hover:underline">Juguetes</a>
+                    <a href="PaginaTecnologia.html" class="hover:underline">Tecnología</a>
+                    <a href="PaginaOutlet.html" class="hover:underline">Outlet</a>
+                </div>
+            </div>
+        </nav>
+
+        <div id="sidebar" class="fixed top-0 left-0 h-full w-[260px] bg-white dark:bg-gray-900 text-black dark:text-white shadow-lg transform -translate-x-full transition-transform duration-300 z-50">
+            <div class="p-5 font-bold text-lg border-b border-gray-200 dark:border-gray-700 flex justify-between items-center">
+                <span>Menú</span>
+                <button id="closeSidebarBtn" class="text-[#e46868] dark:text-[#ff8a8a] text-2xl hover:opacity-80">&times;</button>
+            </div>
+            <div class="flex flex-col p-5 gap-4">
+                <a href="PaginaTodaslascategorias.html" class="hover:text-[#e46868] dark:hover:text-[#ff8a8a] transition">Todas las Categorías</a>
+                <a href="PaginaHogar.html" class="hover:text-[#e46868] dark:hover:text-[#ff8a8a] transition">Hogar</a>
+                <a href="PaginaSaludyBelleza.html" class="hover:text-[#e46868] dark:hover:text-[#ff8a8a] transition">Salud y Belleza</a>
+                <a href="PaginaModa.html" class="hover:text-[#e46868] dark:hover:text-[#ff8a8a] transition">Moda</a>
+                <a href="PaginaJuguetes.html" class="hover:text-[#e46868] dark:hover:text-[#ff8a8a] transition">Juguetes</a>
+                <a href="PaginaTecnologia.html" class="hover:text-[#e46868] dark:hover:text-[#ff8a8a] transition">Tecnología</a>
+                <a href="PaginaOutlet.html" class="hover:text-[#e46868] dark:hover:text-[#ff8a8a] transition">Outlet</a>
+            </div>
+            <div class="absolute bottom-5 left-0 w-full px-5">
+                <button id="darkModeToggle" class="flex items-center gap-2 w-full py-2 px-3 rounded hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2" />
+                        <path stroke="currentColor" stroke-width="2" d="M12 2v2M12 20v2M2 12h2M20 12h2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+                    </svg>
+                    Modo Oscuro
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="w-full min-h-screen flex justify-center items-start py-10">
+        <div class="w-full max-w-[1400px] flex flex-wrap justify-center items-start gap-10">
+            <section class="w-full lg:w-[790px] flex flex-col items-center gap-[60px]">
+                <div class="flex flex-col gap-[25px] self-stretch w-full">
+                    <div class="flex justify-center items-center p-2.5">
+                        <span class="font-semibold text-[36px] text-center text-[#e46868] dark:text-[#ff8a8a]">MI BOLSA</span>
+                    </div>
+                    <!-- Contenedor dinámico para los productos del carrito -->
+                    <div id="cartItemsContainer" class="flex flex-col gap-6"></div>
+
+                    <div class="flex justify-between items-center mt-6 border-t pt-6 border-gray-200 dark:border-gray-700">
+                        <span class="text-2xl font-bold text-[#e46868] dark:text-[#ff8a8a]">Total:</span>
+                        <span class="text-3xl font-extrabold text-[#e46868] dark:text-[#ff8a8a]">$<span id="cart-total-amount">0.00</span></span>
+                    </div>
+
+                    <div class="flex justify-end mt-6">
+                        <a href="PaginaCheckout.html" class="bg-[#e46868] dark:bg-[#c04040] text-white font-bold py-3 px-8 rounded-xl hover:bg-[#d65757] transition text-center">
+                            PROCEDER AL PAGO
+                        </a>
+                    </div>
+                </div>
+            </section>
+            <aside class="flex flex-col gap-6 items-center justify-center">
+                <div class="flex items-center justify-center">
+                    <img class="w-[410px] h-[531px] object-cover bg-gray-200 dark:bg-gray-700 rounded-lg" src="https://via.placeholder.com/410x531" alt="Promo">
+                </div>
+                <div class="h-[386px] w-[430px]">
+                    <img class="w-full h-full object-cover bg-gray-200 dark:bg-gray-700 rounded-lg" src="https://via.placeholder.com/430x386" alt="Promo 2">
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer class="bg-[#f8998d] dark:bg-gray-800 text-white py-12 mt-16">
+        <div class="max-w-7xl mx-auto text-center px-6 space-y-6">
+            <p class="text-lg">Miniso México. Todos los derechos reservados © 2026</p>
+            <div class="flex flex-wrap justify-center gap-6">
+                <a href="#" class="hover:underline">Términos y Condiciones</a>
+                <a href="#" class="hover:underline">Aviso de Privacidad</a>
+            </div>
+            <p class="text-sm max-w-5xl mx-auto leading-7">Miniso.com.mx utiliza cookies a través de las que se obtienen datos personales de los clientes.</p>
+        </div>
+    </footer>
+
+    <script>
+        // ==================== FUNCIONES DEL CARRITO ====================
+
+        // Obtener carrito del localStorage
+        function getCart() {
+            return JSON.parse(localStorage.getItem("cart")) || [];
+        }
+
+        // Guardar carrito en localStorage
+        function saveCart(cart) {
+            localStorage.setItem("cart", JSON.stringify(cart));
+        }
+
+        // Actualizar el contador del carrito en el header
+        function updateCartCounter() {
+            const cart = getCart();
+            const totalItems = cart.reduce((sum, item) => sum + (item.qty || 1), 0);
+            const counters = document.querySelectorAll('.cart-counter');
+            counters.forEach(counter => {
+                if (counter) counter.textContent = totalItems;
+            });
+        }
+
+        // Renderizar los productos en la página del carrito
+        function renderCartPage() {
+            const cart = getCart();
+            const cartContainer = document.getElementById('cartItemsContainer');
+            const totalSpan = document.getElementById('cart-total-amount');
+
+            if (!cartContainer) return;
+
+            if (cart.length === 0) {
+                cartContainer.innerHTML = `
+                            <div class="text-center py-12 bg-neutral-100 dark:bg-gray-800 rounded-xl border-2 border-[#f8998d] dark:border-[#ffaaaa]">
+                                <p class="text-xl text-gray-500 dark:text-gray-400">Tu carrito está vacío</p>
+                                <a href="PaginaTodaslascategorias.html" class="inline-block mt-4 bg-[#e46868] text-white px-6 py-2 rounded-lg hover:bg-[#d65757] transition">Seguir comprando</a>
+                            </div>
+                        `;
+                if (totalSpan) totalSpan.textContent = '0.00';
+                return;
+            }
+
+            cartContainer.innerHTML = '';
+            let subtotal = 0;
+
+            cart.forEach((item, index) => {
+                const itemTotal = item.price * (item.qty || 1);
+                subtotal += itemTotal;
+
+                const productDiv = document.createElement('div');
+                productDiv.className = 'flex flex-wrap items-center gap-[7px] bg-[#f4f4f4] dark:bg-gray-800 px-4 py-2 rounded-[15px] border-2 border-[#f8998d] dark:border-[#ffaaaa]';
+                productDiv.innerHTML = `
+                            <div class="w-[100px] sm:w-[216px] flex flex-col p-2.5">
+                                <div class="bg-[#ffafaf] dark:bg-[#8b3030] p-2.5 rounded-[15px] border-4 border-white dark:border-gray-700">
+                                    <img src="${item.img}" class="h-[100px] sm:h-[174px] w-full object-cover rounded-[10px]" alt="${item.name}" onerror="this.src='https://via.placeholder.com/202x191?text=Producto'">
+                                </div>
+                            </div>
+                            <div class="flex flex-col justify-center gap-3.5 grow px-4 py-6">
+                                <span class="font-bold text-[18px] sm:text-[24px] text-[#e46868] dark:text-[#ff8a8a]">${item.name}</span>
+                                <div class="flex items-center gap-1 text-yellow-400 text-xl">★★★★★</div>
+                                <div class="flex items-center justify-between flex-wrap gap-2">
+                                    <span class="font-extrabold text-[24px] sm:text-[32px] text-[#e46868] dark:text-[#ff8a8a]">$${item.price.toFixed(2)}</span>
+                                    <div class="flex items-center border border-[#f8998d] rounded-[10px] overflow-hidden">
+                                        <button class="cart-decr w-9 bg-[#e46868] dark:bg-[#c04040] text-white text-xl hover:bg-[#d65757] transition" data-index="${index}">-</button>
+                                        <span class="w-9 text-center dark:text-white">${item.qty || 1}</span>
+                                        <button class="cart-incr w-9 bg-[#e46868] dark:bg-[#c04040] text-white text-xl hover:bg-[#d65757] transition" data-index="${index}">+</button>
+                                    </div>
+                                    <button class="cart-remove text-[#e46868] dark:text-[#ff8a8a] text-2xl hover:opacity-80" data-index="${index}">🗑</button>
+                                </div>
+                            </div>
+                        `;
+                cartContainer.appendChild(productDiv);
+            });
+
+            if (totalSpan) totalSpan.textContent = subtotal.toFixed(2);
+
+            // Agregar event listeners a los nuevos botones
+            attachCartItemEvents();
+        }
+
+        // Función para adjuntar eventos a los botones de cantidad y eliminación
+        function attachCartItemEvents() {
+            // Botones de incrementar
+            document.querySelectorAll('.cart-incr').forEach(btn => {
+                btn.removeEventListener('click', handleIncrement);
+                btn.addEventListener('click', handleIncrement);
+            });
+            // Botones de decrementar
+            document.querySelectorAll('.cart-decr').forEach(btn => {
+                btn.removeEventListener('click', handleDecrement);
+                btn.addEventListener('click', handleDecrement);
+            });
+            // Botones de eliminar
+            document.querySelectorAll('.cart-remove').forEach(btn => {
+                btn.removeEventListener('click', handleRemove);
+                btn.addEventListener('click', handleRemove);
+            });
+        }
+
+        function handleIncrement(event) {
+            const index = parseInt(event.currentTarget.dataset.index);
+            const cart = getCart();
+            if (cart[index]) {
+                cart[index].qty = (cart[index].qty || 1) + 1;
+                saveCart(cart);
+                renderCartPage();
+                updateCartCounter();
+            }
+        }
+
+        function handleDecrement(event) {
+            const index = parseInt(event.currentTarget.dataset.index);
+            const cart = getCart();
+            if (cart[index]) {
+                const currentQty = cart[index].qty || 1;
+                if (currentQty > 1) {
+                    cart[index].qty = currentQty - 1;
+                    saveCart(cart);
+                    renderCartPage();
+                    updateCartCounter();
+                } else if (currentQty === 1) {
+                    // Si la cantidad es 1, eliminar el producto
+                    handleRemove(event);
+                }
+            }
+        }
+
+        function handleRemove(event) {
+            const index = parseInt(event.currentTarget.dataset.index);
+            const cart = getCart();
+            cart.splice(index, 1);
+            saveCart(cart);
+            renderCartPage();
+            updateCartCounter();
+        }
+
+        // ==================== INICIALIZACIÓN ====================
+        document.addEventListener("DOMContentLoaded", function () {
+            // Renderizar el carrito
+            renderCartPage();
+            updateCartCounter();
+
+            // ==================== MENÚ DE HAMBURGUESA ====================
+            const menuBtn = document.getElementById("menuBtn");
+            const sidebar = document.getElementById("sidebar");
+            const closeSidebarBtn = document.getElementById("closeSidebarBtn");
+            const darkModeToggle = document.getElementById("darkModeToggle");
+
+            // Abrir sidebar
+            if (menuBtn && sidebar) {
+                menuBtn.addEventListener("click", function (event) {
+                    event.stopPropagation();
+                    sidebar.classList.remove("-translate-x-full");
+                });
+            }
+
+            // Cerrar sidebar con X
+            if (closeSidebarBtn && sidebar) {
+                closeSidebarBtn.addEventListener("click", function () {
+                    sidebar.classList.add("-translate-x-full");
+                });
+            }
+
+            // Cerrar sidebar al hacer clic fuera
+            document.addEventListener("click", function (event) {
+                if (sidebar && !sidebar.classList.contains("-translate-x-full")) {
+                    if (!sidebar.contains(event.target) && event.target !== menuBtn && !menuBtn.contains(event.target)) {
+                        sidebar.classList.add("-translate-x-full");
+                    }
+                }
+            });
+
+            // ==================== MODO OSCURO ====================
+            const savedDarkMode = localStorage.getItem('darkMode');
+            if (savedDarkMode === 'true') {
+                document.documentElement.classList.add('dark');
+            }
+
+            if (darkModeToggle) {
+                darkModeToggle.addEventListener("click", function () {
+                    document.documentElement.classList.toggle('dark');
+                    const isDark = document.documentElement.classList.contains('dark');
+                    localStorage.setItem('darkMode', isDark);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
